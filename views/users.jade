@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  
+
+  if newRecords
+      ul(style="width: auto;").list-group
+          for rec in newRecords
+              li.list-group-item= rec.url
+                span.badge.badge-primary.badge-pill.right
+                a(href='http://localhost:3000/download?url=#{rec.url}&resource=#{rec.resourceUuid}&uid=#{rec.imageUrlUuid}')
+                    button.btn.btn-primary.float-right(type='button') Download
